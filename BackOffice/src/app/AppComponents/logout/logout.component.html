@@ -1,0 +1,20 @@
+<c-card>
+    <c-card-header>
+        <h5>Se Déconnecter</h5>
+    </c-card-header>
+    <c-card-body>
+        <p cCardText>Veuillez confirmer la déconnection de la session</p>
+        <c-container>
+            <c-row>
+                <c-col xs="auto" class="me-auto">
+                    <button cButton class="button-style1" (click)="logout()">Déconnecter</button>
+                </c-col>
+                <c-col xs="auto">
+
+                    <button class="button-style3" routerLink="dashboard" cButton>Annuler</button>
+                </c-col>
+            </c-row>
+
+        </c-container>
+    </c-card-body>
+</c-card>

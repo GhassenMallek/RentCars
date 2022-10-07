@@ -1,0 +1,51 @@
+name: shop
+description: A new Flutter project.
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.4
+  provider: ^6.0.2
+  intl: ^0.17.0
+  shared_preferences: ^2.0.12
+  rating_dialog: ^2.0.3
+  store_redirect: ^2.0.0
+  dio: ^4.0.4
+  curved_navigation_bar: ^1.0.2
+  search_page: ^2.0.0+1
+  badges: ^2.0.2
+  animated_splash_screen: ^1.2.0
+  http: ^0.13.4 
+  path: ^1.8.0 
+  image_picker: any
+  open_file: any
+  file_picker: any
+  animated_theme_switcher: ^2.0.6
+  url_launcher: ^6.1.5
+  flutter_rating_bar: ^4.0.1
+  like_button: ^2.0.4
+  syncfusion_flutter_datepicker: ^20.2.49
+  custom_date_range_picker: ^1.0.6
+  flutter_paypal: ^0.0.8
+  syncfusion_flutter_pdf: ^20.2.50
+  path_provider: ^2.0.1
+  flutter_example: ^0.0.2
+  favorite_button: ^0.0.4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

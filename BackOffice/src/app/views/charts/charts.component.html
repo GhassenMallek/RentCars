@@ -1,0 +1,53 @@
+<c-card class="mb-4">
+
+  <c-card-body>
+    <c-row>
+      <c-col sm="5">
+        <h4 class="card-title mb-0" id="traffic">
+          Liste des voitures
+        </h4>
+      </c-col>
+      <c-col>
+        <div class="mb-3">
+          <label cLabel for="search"></label>
+        </div>
+      </c-col>
+    </c-row>
+    <br>
+    <c-row>
+      <c-col class="d-none d-md-block" sm="12">
+        <div class="table-responsive">
+          <table cTable hover>
+            <thead>
+              <tr>
+                <th scope="col">brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">user</th>
+                <th scope="col">price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rec of reclamationList ; let i = index">
+                <th scope="row">{{rec.brand}}</th>
+                <th scope="row">{{rec.Model}}</th>
+                <th scope="row">{{rec.user}}</th>
+                <th scope="row">{{rec.price}}</th>
+                <td class="text-center">
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </c-col>
+    </c-row>
+
+  </c-card-body>
+</c-card>
+<style>
+  table {
+    width: 100%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+</style>

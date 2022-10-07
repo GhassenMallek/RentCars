@@ -1,0 +1,71 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <c-container>
+        <c-row class="justify-content-center">
+            <c-col md="8">
+                <c-card-group>
+                    <c-card class="p-4">
+                        <c-card-body>
+                            <form cForm *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()"
+                                #f="ngForm" novalidate>
+                                <h1>Se connecter</h1>
+                                <p class="text-medium-emphasis">Connecter à votre compte</p>
+                                <c-input-group class="mb-3">
+                                    <span cInputGroupText>
+                                        <svg cIcon name="cilUser"></svg>
+                                    </span>
+                                    <input autoComplete="email" [(ngModel)]="form.email" required name="email"
+                                        #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+                                        type="email"
+                                        cFormControl placeholder="Email" />
+                                </c-input-group>
+                                <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+                                    Le nom d'utilisateur est obligatoire!
+                                </div>
+                                <c-input-group class="mb-4">
+                                    <span cInputGroupText>
+                                        <svg cIcon name="cilLockLocked"></svg>
+                                    </span>
+                                    <input autoComplete="current-password" cFormControl placeholder="Mot de passe"
+                                        type="password" class="form-control" name="password" [(ngModel)]="form.password"
+                                        required #password="ngModel"
+                                        [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+                                </c-input-group>
+                                <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+                                    <div *ngIf="password.errors['required']">Le mot de passe est obligatoire !</div>
+
+                                </div>
+
+
+                                <c-row>
+                                    <c-col xs="6">
+                                        <button cButton type="submit" class="px-4 button-style1">
+                                            Connecter
+                                        </button>
+
+                                    </c-col>
+                                    <c-col class="text-right" xs="6">
+                                        <button cButton class="px-0 button-style3">
+                                            Mot de passe oublié ?
+                                        </button>
+                                    </c-col>
+                                </c-row>
+                                <br>
+                                <div class="form-group">
+                                    <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                                        Echec de connection {{ errorMessage }}
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="alert alert-success" *ngIf="isLoggedIn">
+                                Connecté(e).
+                            </div>
+
+                        </c-card-body>
+                    </c-card>
+
+                </c-card-group>
+            </c-col>
+        </c-row>
+    </c-container>
+</div>

@@ -1,0 +1,62 @@
+<c-card class="mb-4">
+    <c-card-body>
+        <c-row>
+            <c-col sm="5">
+                <h4 class="card-title mb-0" id="traffic">
+                    Liste des réclamations
+                </h4>
+            </c-col>
+            <c-col>
+                <div class="mb-3">
+                    <label cLabel for="search"></label>
+                    <input cFormControl
+                               id="search"
+                               placeholder="Rechercher..."
+                               type="text"
+                               [(ngModel)]="search"
+                        />
+                    </div>
+            </c-col>
+        </c-row>
+        <br>
+        <c-row>
+            <c-col class="d-none d-md-block" sm="12">
+                <div class="table-responsive">
+                    <table cTable hover >
+                      <thead>
+                        <tr>
+                          <th scope="col">Nom</th>
+                          <th scope="col">email</th>
+                          <th scope="col">telephone</th>
+                          <th scope="col">etat email</th>
+                          <th scope="col">etate telephone</th>
+                          <th scope="col">banned</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let rec of reclamationList | filter:search; let i = index">
+                          <th scope="row">{{rec.fullname}}</th>
+                          <th scope="row">{{rec.email}}</th>
+                          <th scope="row">{{rec.Phone}}</th>
+                          <th scope="row">{{rec.verified}}</th>
+                          <th scope="row">{{rec.verifiedPhone}}</th>
+                          <th scope="row">{{rec.bannned}}</th>
+                          <td class="text-center">
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    </c-col>
+        </c-row>
+
+    </c-card-body>
+</c-card>
+<style>
+    table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+</style>

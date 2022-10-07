@@ -1,0 +1,120 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <c-container>
+        <c-row class="justify-content-center">
+            <c-col lg="7" md="9" xl="6">
+                <c-card class="mx-4">
+                    <c-card-body class="p-4">
+                        <form cForm *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()"
+                            #f="ngForm" novalidate>
+                            <h1 class="headerColor">Créer</h1>
+                            <p class="text-medium-emphasis">Créer votre compte</p>
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cilUser"></svg>
+                                </span>
+                                <input autoComplete="name" class="form-control" [(ngModel)]="form.fullname" required
+                                    name="fullname" #fullname="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && fullname.errors }" type="text"
+                                    cFormControl placeholder="Nom & Prénom" />
+                            </c-input-group>
+                            <div class="invalid-feedback" *ngIf="fullname.errors && f.submitted">
+                                <div *ngIf="fullname.errors['required']">Le nom et prénom sont obligatoire</div>
+                            </div>
+                            <c-input-group class="mb-3">
+                                <span cInputGroupText>@</span>
+                                <input autoComplete="email" [(ngModel)]="form.email" required name="email"
+                                    class="form-control" #email="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && email.errors }" type="email" cFormControl
+                                    placeholder="Email" />
+                            </c-input-group>
+                            <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+                                <div *ngIf="email.errors['required']">L'adresse email est obligatoire</div>
+                                <div *ngIf="email.errors['email']">
+                                    L'adresse email doit etre valide
+                                </div>
+                            </div>
+                            <c-input-group class="mb-4">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cilLockLocked"></svg>
+                                </span>
+                                <input autoComplete="password" cFormControl type="password" class="form-control"
+                                    name="password" [(ngModel)]="form.password" required #password="ngModel"
+                                    [ngClass]="{ 'is-invalid': f.submitted && password.errors }" required
+                                    placeholder="Mot de passe" />
+
+                            </c-input-group>
+                            <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+                                <div *ngIf="password.errors['required']">Le mot de passe est obligatoire</div>
+                            </div>
+                            <c-input-group class="mb-4">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cil-screen-smartphone"></svg>
+                                </span>
+                                <input autoComplete="phone" cFormControl class="form-control"
+                                name="phoneMobile" [(ngModel)]="form.phoneMobile" required #phoneMobile="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && phoneMobile.errors }"
+                                placeholder="Téléphone mobile" type="text" />
+                            </c-input-group>
+                            <div class="invalid-feedback" *ngIf="phoneMobile.errors && f.submitted">
+                                <div *ngIf="phoneMobile.errors['required']">Le numéro de téléphone est obligatoire</div>
+                            </div>
+                            <c-input-group class="mb-4">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cil-phone"></svg>
+                                </span>
+                                <input autoComplete="phoneFix" cFormControl class="form-control"
+                                name="phoneFix" [(ngModel)]="form.phoneFix" #phoneFix="ngModel" placeholder="Téléphone fixe" type="text" />
+                            </c-input-group>
+                            <c-input-group class="mb-4">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cil-home"></svg>
+                                </span>
+                                <input autoComplete="address" cFormControl class="form-control"
+                                name="address" [(ngModel)]="form.address" required #address="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && address.errors }" placeholder="Addresse" type="text" />
+                            </c-input-group>
+                            <div class="invalid-feedback" *ngIf="address.errors && f.submitted">
+                                <div *ngIf="address.errors['required']">L'adresse est obligatoire</div>
+                            </div>
+                            <c-input-group class="mb-4">
+                                <span cInputGroupText>
+                                    <svg cIcon name="cil-window-restore"></svg>
+                                </span>
+                                <input autoComplete="website" cFormControl  class="form-control"
+                                name="website" [(ngModel)]="form.website" #website="ngModel" placeholder="Site Web" type="text" />
+                            </c-input-group>
+                            <c-input-group class="mb-4">
+                                <select aria-label="Selectionner votre role" class="form-control"
+                                name="role" [(ngModel)]="form.role" required #role="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && role.errors }" cSelect class="mb-3">
+                                    <option>Selectionner votre role</option>
+                                    <option value="officine">OFFICINE</option>
+                                    <option value="grossiste">GROSSISTE</option>
+                                    <option value="medecin">MEDECIN</option>
+                                    <option value="dpm">PDM</option>
+                                    <option value="pct">PCT</option>
+                                    <option value="cnip">CNIP</option>
+                                    <option value="sephir">Sephir</option>
+                                    <option value="ineas">INEAS</option>
+                                    <option value="cnopt">CNOPT</option>
+                                    <option value="spot">SPOT</option>
+                                </select>
+                            </c-input-group>
+                            <div class="invalid-feedback" *ngIf="role.errors && f.submitted" >
+                                <div *ngIf="role.errors['required']">Le role est obligatoire</div>
+                            </div>
+                            <div class="d-grid">
+                                <button cButton type="submit" class="button-style1">Create Account</button>
+                            </div>
+                        </form>
+                    </c-card-body>
+                </c-card>
+            </c-col>
+        </c-row>
+    </c-container>
+</div>
+<style>
+    .headerColor {
+        color: #013237
+    }
+</style>
